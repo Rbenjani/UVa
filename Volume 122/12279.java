@@ -34,12 +34,20 @@ class Main implements Runnable {
 
 	public void solve(){
 
-		Byte tc = Byte.parseByte(Main.readLn(255).trim());
-		while(tc-- != 0){
-			Short n = Short.parseShort(Main.readLn(255).trim());
-			int res = ((n*63+7492)*5)-498;
-			StringBuilder sb = new StringBuilder(res + "");
-			System.out.println(sb.charAt(sb.length()-2));
-		}		
+		String input;
+		StringTokenizer tokens;
+		int suma, tc = 1, num, cont2;
+		while((cont2 = Integer.parseInt(Main.readLn(255).trim())) != 0){
+			suma = 0;
+			tokens = new StringTokenizer(Main.readLn(100000).trim());
+			while(cont2-- > 0){
+				if(Integer.parseInt(tokens.nextToken()) > 0)
+					suma++;
+				else
+					suma--;				
+			}
+			StringBuilder sb = new StringBuilder("Case " + tc++ + ": " + suma);
+			System.out.println(sb);
+		}
 	}
 }

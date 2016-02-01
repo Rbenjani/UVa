@@ -34,12 +34,15 @@ class Main implements Runnable {
 
 	public void solve(){
 
-		Byte tc = Byte.parseByte(Main.readLn(255).trim());
-		while(tc-- != 0){
-			Short n = Short.parseShort(Main.readLn(255).trim());
-			int res = ((n*63+7492)*5)-498;
-			StringBuilder sb = new StringBuilder(res + "");
-			System.out.println(sb.charAt(sb.length()-2));
-		}		
+		int tc = Integer.parseInt(Main.readLn(255).trim());
+		int f, c;
+		StringTokenizer tokens;
+
+		while(tc-- != 0){				
+			tokens = new StringTokenizer(Main.readLn(255));
+			f = Integer.parseInt(tokens.nextToken());
+			c = Integer.parseInt(tokens.nextToken());
+			System.out.println((f/3) * (c/3));
+		}
 	}
 }

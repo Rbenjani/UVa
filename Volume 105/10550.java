@@ -34,12 +34,27 @@ class Main implements Runnable {
 
 	public void solve(){
 
-		Byte tc = Byte.parseByte(Main.readLn(255).trim());
-		while(tc-- != 0){
-			Short n = Short.parseShort(Main.readLn(255).trim());
-			int res = ((n*63+7492)*5)-498;
-			StringBuilder sb = new StringBuilder(res + "");
-			System.out.println(sb.charAt(sb.length()-2));
-		}		
+		String input;
+		StringTokenizer tokens;
+		short degrees, suma;
+		byte[] pos = new byte[4];
+
+		while(true){
+			suma = 0;
+			degrees = 1080;
+			input = Main.readLn(255);
+			tokens = new StringTokenizer(input);
+			byte b = -1;
+			while(b++ < 3){				
+				pos[b] = Byte.parseByte(tokens.nextToken());
+				suma += pos[b];
+			}	
+			if(suma != 0)
+				degrees += (((40+pos[0]-pos[1])%40) + ((40+pos[2]-pos[1])%40) + ((40+pos[2]-pos[3])%40)) *9;
+			else
+				break;
+			
+		System.out.println(degrees);			
+		}
 	}
 }
