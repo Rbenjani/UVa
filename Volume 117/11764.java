@@ -37,15 +37,23 @@ class Main implements Runnable {
 		StringTokenizer tokens = new StringTokenizer(Main.readLn(255));
 		int tc = Integer.parseInt(tokens.nextToken()), cases = 1;
 		while(tc-- != 0){
-			Short mayor = 0;
-			String[] numeros = Main.readLn(10000).trim().split(" ");
-			for(String s: numeros){
-				Short num = Short.parseShort(s);
-				if(num > mayor)
-					mayor = num;
-			}        
-			StringBuilder sb = new StringBuilder("Case " + cases++ + ": " + mayor);
-			System.out.println(sb);
+			tokens = new StringTokenizer(Main.readLn(255));
+			int walls = Integer.parseInt(tokens.nextToken());
+			tokens = new StringTokenizer(Main.readLn(255));
+			int posin = Integer.parseInt(tokens.nextToken()), pos;
+			int hj = 0, lj = 0;
+			for(int i = 1; i < walls; i++){
+				pos = Integer.parseInt(tokens.nextToken());
+				if(pos != posin){
+					if(pos > posin)
+						hj++;
+					else
+						lj++;
+				}
+				posin = pos;
+			}
+			StringBuilder sb = new StringBuilder("Case " + cases++ + ": " + hj + " " + lj);
+			System.out.println(sb);		
 		}
 	}
 }
